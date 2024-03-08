@@ -1,0 +1,520 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-weight: 200;
+}
+
+header {
+    background: url("../img/accueilImg.jpg") center/cover;
+    height: 100vh;
+    color: whitesmoke;
+}
+/* ***********************NAVBAR************************** */
+.nav-top {
+    display: flex;
+    height: 5vh;
+    justify-content: center;
+    background-color: whitesmoke;
+    color: rgb(19, 19, 19);
+    font-size: 10px;
+}
+
+.nav-top p {
+    margin: auto 0;
+}
+
+.nav-main {
+    height: 15vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: solid 1px whitesmoke;
+    transition: 0.2s;
+
+}
+
+.sticky {
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    background-color: rgb(234, 194, 163) !important;
+    z-index: 10000;
+}
+
+.nav-categories ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-categories ul li a {
+    padding: 10px;
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.logo {
+    margin-top: 10px;
+}
+
+.nav-icons {
+    display: flex;
+}
+
+.nav-icons input {
+    background-color: transparent;
+    border: solid 1px whitesmoke;
+}
+
+
+.nav-icons ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-icons ul li a {
+    padding: 10px;
+}
+
+.nav-icons i {
+    color: whitesmoke;
+}
+
+
+/* ****************SIDEBAR************************** */
+#side-bar {
+    position: absolute;
+    width: 230px;
+    height: 100%;
+    background: rgb(234, 194, 163);
+    top: 0;
+    left: -230px;
+    transition: 0.5s ease-out;
+    z-index: 20000;
+}
+#side-bar ul li{
+    list-style-type: none;
+    padding: 10px;
+}
+#side-bar ul li a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.toggle-btn {
+    position: absolute;
+    top: 60px;
+    left: 240px;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    display: none;
+    z-index: 6;
+}
+
+.toggle-btn span {
+    width: 40px;
+    height: 5px;
+    border-radius: 5px;
+    background: whitesmoke;
+    display: block;
+    margin-top: 4px;
+    transition: 0.3s ease;
+}
+
+#side-bar.active {
+    left: 0;
+}
+
+.active span {
+    position: absolute;
+}
+
+.active span:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.active span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+.active~body {
+    opacity: 0.3;
+}
+
+/* ************************************************* */
+
+
+
+.headBanner {
+    display: flex;
+    height: 70vh;
+    align-items: end;
+    margin: 0 50px;
+}
+
+.headBanner p {
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+
+.sectionCategories a {
+    text-transform: uppercase;
+}
+
+.categorie1 {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.cuisine {
+    width: 45%;
+}
+
+.rose {
+    width: 45%;
+}
+
+.cuisineImg {
+    background: url("../img/kitchenWall.png") center/cover;
+    height: 70vh;
+}
+
+.roseImg {
+    background: url("../img/pinkWall.png") center/cover;
+    height: 70vh;
+}
+
+.categorie2 {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 30px;
+}
+
+/* .categorie1 div {
+    width: 30%;
+    height: 50vh;
+} */
+
+.categorie1 a {
+    color: whitesmoke;
+    padding: 10px;
+    text-shadow: 2px 2px 10px black;
+}
+
+.nouveautes {
+    background: url("../img/nouveautes.png") center/cover;
+    width: 30%;
+    height: 50vh;
+    display: flex;
+    align-items: end;
+}
+
+.colores {
+    background: url("../img/colores.jpg") center/cover;
+    width: 30%;
+    height: 50vh;
+    display: flex;
+    align-items: end;
+}
+
+.noirBlanc {
+    background: url("../img/noirBlanc.jpg") center/cover;
+    width: 30%;
+    height: 50vh;
+    display: flex;
+    align-items: end;
+}
+
+.cuisine {
+    width: 45%;
+}
+
+.rose {
+    width: 45%;
+}
+
+.categorie2 button {
+    border: none;
+    background-color: transparent;
+    font-weight: 600;
+}
+
+.categorie2 button a {
+    color: black;
+}
+
+.voirPlus {
+    display: flex;
+    justify-content: center;
+    font-size: 0.8rem;
+    padding: 50px 0;
+}
+
+.voirPlus a {
+    color: black;
+}
+
+
+
+.combinaisons {
+    background: url("../img/combinaisonsCadres.png") center/cover;
+    height: 50vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: end;
+    position: relative;
+}
+
+.combinaisons h3 {
+    color: whitesmoke;
+    font-size: 1.2rem;
+    padding: 15px 40px;
+    text-shadow: 4px 1px 10px black;
+    text-decoration: underline;
+}
+
+.indicator1 {
+    position: absolute;
+    font-size: 1.5rem;
+    top: 30%;
+    left: 30%;
+    color: whitesmoke;
+}
+
+.indicator1:hover,
+.indicator2:hover,
+.indicator3:hover {
+    color: rgb(221, 156, 82);
+    cursor: pointer;
+}
+
+.infos1,
+.infos2,
+.infos3 {
+    background-color: whitesmoke;
+    line-height: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+
+}
+
+.infos1 p:nth-child(1),
+.infos2 p:nth-child(1),
+.infos3 p:nth-child(1) {
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+.infos1 p:nth-child(2),
+.infos2 p:nth-child(2),
+.infos3 p:nth-child(2) {
+    font-size: 13px;
+}
+
+.infos1 {
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    display: none;
+}
+
+.infos2 {
+    position: absolute;
+    top: 22%;
+    left: 60%;
+    display: none;
+}
+
+.infos3 {
+    position: absolute;
+    top: 35%;
+    left: 80%;
+    display: none;
+}
+
+.indicator1:hover~.infos1 {
+    display: block;
+}
+
+.indicator2:hover~.infos2 {
+    display: block;
+}
+
+.indicator3:hover~.infos3 {
+    display: block;
+}
+
+.indicator2 {
+    position: absolute;
+    font-size: 1.5rem;
+    top: 40%;
+    left: 60%;
+    color: whitesmoke;
+}
+
+.indicator3 {
+    position: absolute;
+    font-size: 1.5rem;
+    top: 25%;
+    left: 90%;
+    color: whitesmoke;
+}
+
+.selection h4 {
+    margin: 30px auto;
+    width: 75%;
+}
+
+.card {
+    transition: 0.5;
+}
+
+.selection img:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.outils {
+    background: url("../img/outilsCreationMur.png") center/cover;
+    height: 60vh;
+    display: flex;
+    align-items: end;
+}
+
+.outils h3 {
+    color: whitesmoke;
+    text-decoration: underline;
+    padding: 0 30px;
+}
+
+.outils p {
+    padding: 0 30px;
+    color: whitesmoke;
+    font-weight: 700;
+}
+
+
+
+/* *********************FOOTER**************************** */
+
+footer {
+    background-color: rgba(253, 245, 234, 0.905);
+    height: 60vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer a {
+    text-decoration: none;
+    color: rgb(22, 22, 22);
+}
+
+footer img {
+    margin: 0 50px 0;
+}
+
+footer ul {
+    list-style-type: none;
+}
+
+.socio {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: -80px;
+    margin-left: -80px;
+    font-size: 2.5rem;
+}
+
+.logoSocio,
+.infos,
+.newsletter {
+    width: 30%;
+}
+
+.infos {
+    margin-left: 30px;
+}
+
+.infos h5 {
+    margin-left: 30px;
+}
+
+.newsletter input {
+    width: 300px;
+    margin: 10px 0;
+    padding: 5px 0;
+}
+
+.newsletter h5 {
+    width: 300px;
+}
+
+.newsletter button {
+    width: 300px;
+    padding: 5px 0;
+    background-color: transparent;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+.newsletter button:hover {
+    background-color: rgb(44, 42, 42);
+    color: whitesmoke;
+}
+
+
+
+/* ********************MEDIAQUERIES********************* */
+
+@media screen and (max-width : 984px) {
+    .toggle-btn{
+        display: block;
+    }
+    .nav-categories, .nav-icons{
+        display: none;
+    }
+    .nav-main{
+        justify-content: end;
+    }
+    .logoSocio img{
+        width: 200px;
+    }
+    .socio{
+        font-size: 1.5rem;
+        margin: 0;
+    }
+    .newsletter input,.newsletter button, .newsletter h5{
+        width: 150px;
+    }
+        
+    }
+    @media screen and (max-width : 625px){
+    
+    }
