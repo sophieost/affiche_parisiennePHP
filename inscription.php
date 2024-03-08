@@ -47,6 +47,9 @@ require_once "inc/header.inc.php"
             <input type="text" class="form-control" id="lastName" name="lastName">
         </div>
     </div>
+
+    <button class="w-25 m-auto btn btn-danger btn-lg fs-5" type="submit">Se connecter</button>
+    <p class="mt-5 text-center">Vous n'avez pas encore de compte ! <a href="register.php" class=" text-danger">créer un compte ici</a></p>
     </form>
 
 
