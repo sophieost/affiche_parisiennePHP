@@ -1,5 +1,5 @@
 <?php
-$title = "Accueil";
+// $title = "Accueil";
 require_once "functions.inc.php";
 
 
@@ -15,8 +15,8 @@ logOut();
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Premier site en PHP : site avec la BDD cinema">
-    <meta name="author" content="Yacine Djediden">
+    <meta name="description" content="Premier site ecommerce en php">
+    <meta name="author" content="sophie & christelle">
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <!-- Font family -->
@@ -58,7 +58,7 @@ logOut();
                             <li><a href="<?= RACINE_SITE ?>identification.php"><i class="bi bi-person"></i></a></li>
 
                         <?php } else { ?>
-                            <li><a href="<?= RACINE_SITE ?>profil.php"><i class="bi bi-person"></i><sup><?= $_SESSION['user']['firstName'] ?></sup></a></li>
+                            <li><a href="<?= RACINE_SITE ?>profil.php"><i class="bi bi-person"></i></a></li>
 
                             <?php if ($_SESSION['user']['role'] == 'ROLE_ADMIN') { ?>
                                 <li>
@@ -67,7 +67,12 @@ logOut();
 
                             <?php } ?>
 
+                            <li>
+                                <a class="text-decoration-none text-white" href="?action=deconnexion">Déconnexion</a>
+                            </li>
+                            <!--  -->
                         <?php } ?>
+
 
                         <li><a href="<?= RACINE_SITE ?>favoris.php"><i class="bi bi-heart"></i></a></li>
 
@@ -101,9 +106,18 @@ logOut();
 
         <section class="headBanner">
             <div>
-                <h2>affichez votre personnalité</h2>
-                <p>Transformez votre maison avec des impressions d'art contemporain.</p>
-                <p>Chacune soigneusement choisie par <span>AFFICHE PARISIENNE</span>.</p>
+                <h2><?= $bannerTitle ?></h2>
+
+                <?php
+                if (isset($bannerPara)) {
+                    echo "<p>$bannerPara</p>";
+                }
+
+                if (isset($bannerPara2) && isset($bannerSpan)) {
+                    echo "<p>$bannerPara2 <span>$bannerSpan</span></p>";
+                }
+                ?>
+
             </div>
         </section>
 

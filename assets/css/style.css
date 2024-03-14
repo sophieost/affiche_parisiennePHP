@@ -18,6 +18,7 @@ header {
     height: 100vh;
     color: whitesmoke;
 }
+
 /* ***********************NAVBAR************************** */
 .nav-top {
     display: flex;
@@ -74,6 +75,10 @@ header {
     background-color: transparent;
     border: solid 1px whitesmoke;
 }
+
+/* input [type=search]{
+
+} */
 
 
 .nav-icons ul {

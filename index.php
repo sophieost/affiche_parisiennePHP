@@ -9,6 +9,12 @@ require_once "inc/functions.inc.php";
 
 
 $title = "Accueil";
+
+$bannerTitle = "Affichez votre personnalité";
+$bannerPara = "Transformez votre maison avec des impressions d'art contemporain.";
+$bannerPara2 = "Chacune soigneusement choisie par";
+$bannerSpan = "AFFICHE PARISIENNE.";
+
 require_once "inc/header.inc.php";
 
 
@@ -179,6 +185,8 @@ $info = "";
           </div>
 
      </section>
+
+     
 
 
 

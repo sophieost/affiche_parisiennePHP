@@ -57,3 +57,14 @@ function dropHandler(ev) {
     ev.target.appendChild(document.getElementById(data));
 }
 
+
+function showPass() {
+    if (mdp.type === "password") {
+        mdp.type = "text";
+        confirmMdp.type = "text";
+    } else {
+        mdp.type = "password";
+        confirmMdp.type = "password";
+    }
+}
+
