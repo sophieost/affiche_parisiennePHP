@@ -130,7 +130,6 @@ function inscriptionUsers(string $pseudo, string $email, string $mdp, string $ci
     );
 }
 
-
 ////////////////// Fonction pour vérifier si un email existe dans la BDD ///////////////////////////////
 
 function checkEmailUser(string $email): mixed
@@ -163,8 +162,9 @@ function checkPseudoUser(string $pseudo)
     return $resultat;
 }
 
-/////////// Fonction pour vérifier un utilisateur ////////////////////
 
+
+/////////// Fonction pour vérifier un utilisateur ////////////////////
 
 function checkUser(string $email, string $pseudo): mixed
 {
@@ -183,7 +183,340 @@ function checkUser(string $email, string $pseudo): mixed
     return $resultat;
 }
 
+//  /////////////////Fonction pour récupérer tous les utilisateurs///////////////////
 
+function allUsers(): array
+{
+
+    $pdo = connexionBdd();
+    $sql = "SELECT * FROM users";
+    $request = $pdo->query($sql);
+    $result = $request->fetchAll();
+    return $result;
+}
+
+// /////////////////  Fonction pour recuperer un seul utilisateur  //////////////////////
+
+function showUser(int $id): array
+{
+    $pdo = connexionBdd();
+    $sql = "SELECT * FROM users WHERE id_user = :id_user";
+    $request = $pdo->prepare($sql);
+    $request->execute(array(
+
+        ':id_user' => $id
+
+    ));
+    $result = $request->fetch();
+    return $result;
+}
+
+// /////////////////  Fonction pour supprimer un utilisateur  ///////////////////////
+
+function deleteUser(int $id): void
+{
+    $pdo = connexionBdd();
+    $sql = "DELETE FROM users WHERE id_user = :id_user";
+    $request = $pdo->prepare($sql);
+    $request->execute(array(
+
+        ':id_user' => $id
+
+    ));
+}
+
+// ////////////////////  Fonction pour modifier le role d'un utilisateur//////////////
+
+function updateRole(string $role, int $id): void
+{
+    $pdo = connexionBdd();
+    $sql = "UPDATE users SET role = :role WHERE id_user = :id_user";
+    $request = $pdo->prepare($sql);
+    $request->execute(array(
+        ':role' => $role,
+        ':id_user' => $id
+
+    ));
+}
+
+
+
+
+//////////////une fonction pour recupérer toutes les catégories//////////
+
+function allCategories(): array
+{
+
+    $pdo = connexionBdd();
+    $sql = "SELECT * FROM categories";
+    $request = $pdo->query($sql);
+    $result = $request->fetchAll();
+    return $result;
+}
+
+
+
+// //////////   fonction pour afficher une categorie  ////////////
+
+function showCategory(int $id): mixed
+{
+    $pdo = connexionBdd();
+    $sql = "SELECT * FROM categories WHERE id_category = :id ";
+    $request = $pdo->prepare($sql);
+    $request->execute(array(
+        ':id' => $id
+    ));
+
+    $result = $request->fetch();
+    return $result;
+}
+
+
+
+// ///////   Fonction pour ajouter une catégorie   /////////////
+
+function addCategory(string $categoryName, string $description): void
+{
+
+    $pdo = connexionBdd();
+
+    $sql = "INSERT INTO categories (categoryName, description) VALUES (:categoryName, :description)";
+
+    $request = $pdo->prepare($sql);
+    $request->execute(array(
+
+        ':categoryName' => $categoryName,
+        ':description' => $description
+    ));
+}
+
+////////  Fonction pour supprimer une categorie //////////
+
+function deleteCategory(int $id): void
+{
+    $pdo = connexionBdd();
+
+    // // Supprimer les films associés à la catégorie
+    // $sql = "DELETE FROM films WHERE category_id = :id";
+    // $request = $pdo->prepare($sql);
+    // $request->execute([':id' => $id]);
+
+    // Supprimer la catégorie
+    $sql = "DELETE FROM categories WHERE id_category = :id";
+    $request = $pdo->prepare($sql);
+    $request->execute(array(':id' => $id));
+}
+
+
+//////////////une fonction pour recupérer toutes les couleurs//////////
+
+function allColors(): array
+{
+
+    $pdo = connexionBdd();
+    $sql = "SELECT * FROM colors";
+    $request = $pdo->query($sql);
+    $result = $request->fetchAll();
+    return $result;
+}
+
+
+// //////////   fonction pour afficher une couleur  ////////////
+
+function showColor(int $id): mixed
+{
+    $pdo = connexionBdd();
+    $sql = "SELECT * FROM colors WHERE id_category = :id ";
+    $request = $pdo->prepare($sql);
+    $request->execute(array(
+        ':id' => $id
+    ));
+
+    $result = $request->fetch();
+    return $result;
+}
+
+
+//////////////une fonction pour recupérer toutes les pièces//////////
+
+function allRooms(): array
+{
+
+    $pdo = connexionBdd();
+    $sql = "SELECT * FROM rooms";
+    $request = $pdo->query($sql);
+    $result = $request->fetchAll();
+    return $result;
+}
+
+
+// //////////   fonction pour afficher une pièce  ////////////
+
+function showRoom(int $id): mixed
+{
+    $pdo = connexionBdd();
+    $sql = "SELECT * FROM rooms WHERE id_category = :id ";
+    $request = $pdo->prepare($sql);
+    $request->execute(array(
+        ':id' => $id
+    ));
+
+    $result = $request->fetch();
+    return $result;
+}
+
+
+
+
+////////////////// fonction pour récupérer tous les produits/////////////////////
+
+function allProducts(): array
+{
+
+    $pdo = connexionBdd();
+    $sql = "SELECT products.* , categories.name as category, colors.name as color, rooms.name as room
+    FROM products
+    LEFT JOIN categories ON products.category_id = categories.id_category
+    LEFT JOIN colors ON products.color_id = colors.id_color
+    LEFT JOIN rooms ON products.room_id = rooms.id_room";
+    $request = $pdo->query($sql);
+    $result = $request->fetchAll();
+    return $result;
+}
+
+
+//////////////  fonction pour afficher un produit///////////////
+
+function showProduct(int $id): mixed
+{
+    $pdo = connexionBdd();
+    $sql = "SELECT * FROM products WHERE id_product = :id ";
+    $request = $pdo->prepare($sql);
+    $request->execute(array(
+        ':id' => $id
+    ));
+
+    $result = $request->fetch();
+    return $result;
+}
+
+// //////////  Fonction pour supprimer un produit/////////////
+
+function deleteProduct(int $id): void
+{
+    $pdo = connexionBdd();
+
+    $sql = "DELETE FROM products WHERE id_product = :id";
+    $request = $pdo->prepare($sql);
+    $request->execute([':id' => $id]);
+}
+
+// //////////////// fonction pour afficher les produits les plus chers  ////////////////////////
+
+function productByPriceDesc(){
+    $pdo = connexionBdd();
+    $sql = "SELECT * FROM products ORDER BY price DESC";
+    $request = $pdo->query($sql);
+    $result = $request->fetchAll();
+    return $result;
+
+}
+
+// //////////////// fonction pour afficher les produits les moins chers  ////////////////////////
+
+function productByPriceAsc(){
+    $pdo = connexionBdd();
+    $sql = "SELECT * FROM products ORDER BY price ASC";
+    $request = $pdo->query($sql);
+    $result = $request->fetchAll();
+    return $result;
+
+}
+
+// //////////////  Fonction pour récuperer un produit qui a la même catégorie  /////////////////
+
+function productByCategory(int $id): array
+{
+    $pdo = connexionBdd();
+    $sql = "SELECT * FROM products WHERE category_id = :id";
+    $request = $pdo->prepare($sql);
+    $request->execute([':id' => $id]);
+
+    $result = $request->fetchAll();
+    return $result;
+}
+
+
+// //////////////  Fonction pour récuperer un produit qui a la même couleur  /////////////////
+
+function productByColor(int $id): array
+{
+    $pdo = connexionBdd();
+    $sql = "SELECT * FROM products WHERE color_id = :id";
+    $request = $pdo->prepare($sql);
+    $request->execute([':id' => $id]);
+
+    $result = $request->fetchAll();
+    return $result;
+}
+
+
+// //////////////  Fonction pour récuperer un produit qui a la même pièce  /////////////////
+
+function productByRoom(int $id): array
+{
+    $pdo = connexionBdd();
+    $sql = "SELECT * FROM products WHERE room_id = :id";
+    $request = $pdo->prepare($sql);
+    $request->execute([':id' => $id]);
+
+    $result = $request->fetchAll();
+    return $result;
+}
+
+// //////////////  Fonction pour récuperer les produits qui ont la taille small  /////////////////
+
+function productSmall(): array
+{
+    $pdo = connexionBdd();
+    $sql = "SELECT * FROM products WHERE size = 's'";
+    $request = $pdo->query($sql);
+    $result = $request->fetchAll();
+    return $result;
+}
+
+// //////////////  Fonction pour récuperer les produits qui ont la taille medium  /////////////////
+
+function productMedium(): array
+{
+    $pdo = connexionBdd();
+    $sql = "SELECT * FROM products WHERE size = 'm'";
+    $request = $pdo->query($sql);
+    $result = $request->fetchAll();
+    return $result;
+}
+
+// //////////////  Fonction pour récuperer les produits qui ont la taille large  /////////////////
+
+function productLarge(): array
+{
+    $pdo = connexionBdd();
+    $sql = "SELECT * FROM products WHERE size = 'l'";
+    $request = $pdo->query($sql);
+    $result = $request->fetchAll();
+    return $result;
+}
+
+// //////////////  Fonction pour récuperer les produits qui ont la taille XL  /////////////////
+
+function productXl(): array
+{
+    $pdo = connexionBdd();
+    $sql = "SELECT * FROM products WHERE size = 'xl'";
+    $request = $pdo->query($sql);
+    $result = $request->fetchAll();
+    return $result;
+}
 
 
 ////////////////////// Une fonction pour la création des clés étrangères //////////////////////////

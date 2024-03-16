@@ -45,7 +45,7 @@ logOut();
                     </ul>
                 </div>
                 <div class="logo">
-                    <a class="navbar-brand" href="<?= RACINE_SITE ?>index.php"><img src="assets/img/logo1.png" alt="" width="200"></a>
+                    <a class="navbar-brand" href="<?= RACINE_SITE ?>index.php"><img src="<?= RACINE_SITE."assets/img/logo1.png"?>" alt="logo" width="200" height="200"></a>
                 </div>
                 <div class="nav-icons">
                     <div>
@@ -62,13 +62,13 @@ logOut();
 
                             <?php if ($_SESSION['user']['role'] == 'ROLE_ADMIN') { ?>
                                 <li>
-                                    <a href="<?= RACINE_SITE ?>admin/dashboard.php?dashboard_php">Backoffice</a>
+                                    <a href="<?= RACINE_SITE ?>admin/dashboard.php?dashboard_php" class="text-white text-decoration-none">Backoffice</a>
                                 </li>
 
                             <?php } ?>
 
                             <li>
-                                <a class="text-decoration-none text-white" href="?action=deconnexion">Déconnexion</a>
+                                <a class="text-decoration-none text-white" href="?action=deconnexion"><i class="bi bi-box-arrow-right"></i></a>
                             </li>
                             <!--  -->
                         <?php } ?>

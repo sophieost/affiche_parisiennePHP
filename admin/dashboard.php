@@ -35,7 +35,7 @@ require_once "../inc/header.inc.php";
                         <a href="?dashboard_php" class="nav-link text-dark">Backoffice</a>
                     </li>
                     <li>
-                        <a href="?adminProducts_php" class="nav-link text-dark">Produits</a>
+                        <a href="?products_php" class="nav-link text-dark">Produits</a>
                     </li>
 
                     <li>
@@ -67,8 +67,8 @@ require_once "../inc/header.inc.php";
 
             if (!empty($_GET)) {
 
-                if (isset($_GET['adminProducts_php'])) {
-                    require_once "adminProducts.php";
+                if (isset($_GET['products_php'])) {
+                    require_once "products.php";
 
                 } else if (isset($_GET['users_php'])) {
                     require_once "users.php";
