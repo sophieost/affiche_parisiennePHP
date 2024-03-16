@@ -20,7 +20,9 @@ logOut();
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <!-- Font family -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <!-- Icons Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <!-- mon style -->
@@ -45,7 +47,7 @@ logOut();
                     </ul>
                 </div>
                 <div class="logo">
-                    <a class="navbar-brand" href="<?= RACINE_SITE ?>index.php"><img src="<?= RACINE_SITE."assets/img/logo1.png"?>" alt="logo" width="200" height="200"></a>
+                    <a class="navbar-brand" href="<?= RACINE_SITE ?>index.php"><img src="<?= RACINE_SITE . "assets/img/logo1.png" ?>" alt="logo" width="200" height="200"></a>
                 </div>
                 <div class="nav-icons">
                     <div>
@@ -115,6 +117,10 @@ logOut();
 
                 if (isset($bannerPara2) && isset($bannerSpan)) {
                     echo "<p>$bannerPara2 <span>$bannerSpan</span></p>";
+                }
+
+                if (isset($bannerMenu)) {
+                    echo "<div>$bannerMenu</div>";
                 }
                 ?>
 

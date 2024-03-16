@@ -130,7 +130,7 @@ require_once "../inc/header.inc.php";
 
 ?>
 
-<main>
+
 
     <?php
     echo $info;
@@ -246,7 +246,7 @@ require_once "../inc/header.inc.php";
     </form>
 
 
-</main>
+
 
 
 

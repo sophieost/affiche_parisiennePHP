@@ -224,7 +224,6 @@ function deleteUser(int $id): void
 
     ));
 }
-
 // ////////////////////  Fonction pour modifier le role d'un utilisateur//////////////
 
 function updateRole(string $role, int $id): void

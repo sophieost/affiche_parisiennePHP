@@ -21,11 +21,11 @@ $title = "Produits";
 
 ?>
 
-<main>
+<main class="mainProducts bg-white pt-3">
 
+    <h2 class="text-center fw-bolder mb-5 text-secondary">Liste des affiches</h2>
     <div class="container d-flex flex-column m-auto mt-5">
 
-        <h2 class="text-center mb-5 text-secondary">Liste des affiches</h2>
         <a href="gestionProducts.php" class="btn btn-secondary p-2 fs-5 align-self-end "> Ajouter une affiche</a>
         <table class="table table-bordered mt-5 ">
             <thead>
