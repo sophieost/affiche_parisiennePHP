@@ -45,7 +45,7 @@ $info = "";
           </div>
           <div class="voirPlus">
                <div>
-                    <a href="">Voir toutes les colections</a>
+                    <a href="collections.php">Voir toutes les collections</a>
                </div>
           </div>
      </section>
@@ -77,108 +77,128 @@ $info = "";
 
      <!-- ***************** Carousel Products *************-->
      <section class="selection">
-          <h4>Sélectionnés pour vous</h4>
+          <h4>Nouveautés</h4>
 
 
-          <div id="carouselExampleDark" class="carousel carousel-dark slide w-75 mx-auto">
+          <div id="myCarousel" class="carousel slide carousel-dark w-75 mx-auto">
                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active mx-2" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active mx-2"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="active mx-2"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4" class="active mx-2"></button>
                </div>
+
                <div class="carousel-inner ">
 
-
                     <div class="carousel-item active" data-bs-interval="10000">
+
                          <div class="card-group">
-                              <div class="card mx-3 border-0">
-                                   <a href="#"><img src="./assets/img/catsPaint.jpg" class="card-img-top" alt="..."></a>
-                                   <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">à partir de 39,90€</p>
-                                        </p>
+
+                              <?php
+                              $products1 = productByDateDesc1();
+                              foreach ($products1 as $product) {
+                              ?>
+                                   <div class="col-md-3">
+
+                                        <div class="card mx-3 border-0">
+                                             <a href="#"><img src="<?= RACINE_SITE . "assets/img/" . $product['image'] ?>" class="card-img-top" alt="affiche"></a>
+                                             <div class="card-body">
+                                                  <h5 class="card-title"><?= $product['name'] ?></h5>
+                                                  <p class="card-text"><a href="<? RACINE_SITE . "showProduct.php?id_product=" . $product['id_product'] ?>" class="text-decoration-none text-secondary "><?= $product['price'] ?></a> €</p>
+                                                  </p>
+                                             </div>
+                                        </div>
                                    </div>
-                              </div>
-                              <div class="card mx-3 border-0">
-                                   <img src="./assets/img/citron.jpg" class="card-img-top" alt="...">
-                                   <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">à partir de 39,90€</p>
-                                        </p>
-                                   </div>
-                              </div>
-                              <div class="card mx-3 border-0">
-                                   <img src="./assets/img/Sandra_Blomen_Maschinsky_Motljus_Frame_Oak_Low_Res-800x1120.jpg" class="card-img-top" alt="...">
-                                   <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">à partir de 39,90€</p>
-                                        </p>
-                                   </div>
-                              </div>
-                              <div class="card mx-3 border-0">
-                                   <img src="./assets/img/colorPaint.jpg" class="card-img-top" alt="...">
-                                   <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">à partir de 39,90€</p>
-                                        </p>
-                                   </div>
-                              </div>
+                              <?php
+                              }
+                              ?>
                          </div>
                     </div>
 
-
-
-                    <div class="carousel-item" data-bs-interval="2000">
+                    <div class="carousel-item">
                          <div class="card-group">
-                              <div class="card mx-3 border-0">
-                                   <a href=""><img src="./assets/img/Nord_Projects_11_PM_Frame_Oak_Low_Res-800x1120.jpg" class="card-img-top" alt="..."></a>
-                                   <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">à partir de 39,90€</p>
-                                        </p>
+
+                              <?php
+                              $products2 = productByDateDesc2();
+                              foreach ($products2 as $product) {
+                              ?>
+                                   <div class="col-md-3">
+
+                                        <div class="card mx-3 border-0">
+                                             <a href="#"><img src="<?= RACINE_SITE . "assets/img/" . $product['image'] ?>" class="card-img-top" alt="affiche"></a>
+                                             <div class="card-body">
+                                                  <h5 class="card-title"><?= $product['name'] ?></h5>
+                                                  <p class="card-text"><a href="<? RACINE_SITE . "showProduct.php?id_product=" . $product['id_product'] ?>" class="text-decoration-none text-secondary "><?= $product['price'] ?></a> €</p>
+                                                  </p>
+                                             </div>
+                                        </div>
                                    </div>
-                              </div>
-                              <div class="card mx-3 border-0">
-                                   <img src="./assets/img/Nord_Projects_8_Am_Frame_Oak_Low_Res-1000x1400.jpg" class="card-img-top" alt="...">
-                                   <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">à partir de 39,90€</p>
-                                        </p>
-                                   </div>
-                              </div>
-                              <div class="card mx-3 border-0">
-                                   <img src="./assets/img/pullOverMan.jpg" class="card-img-top" alt="...">
-                                   <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">à partir de 39,90€</p>
-                                        </p>
-                                   </div>
-                              </div>
-                              <div class="card mx-3 border-0">
-                                   <img src="./assets/img/pêcheEtVerre.jpg" class="card-img-top" alt="...">
-                                   <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">à partir de 39,90€</p>
-                                        </p>
-                                   </div>
-                              </div>
+                              <?php
+                              }
+                              ?>
                          </div>
                     </div>
+
+                    <div class="carousel-item">
+                         <div class="card-group">
+                              <?php
+                              $products3 = productByDateDesc3();
+                              foreach ($products3 as $product) {
+                              ?>
+                                   <div class="col-md-3">
+
+                                        <div class="card mx-3 border-0">
+                                             <a href="#"><img src="<?= RACINE_SITE . "assets/img/" . $product['image'] ?>" class="card-img-top" alt="affiche"></a>
+                                             <div class="card-body">
+                                                  <h5 class="card-title"><?= $product['name'] ?></h5>
+                                                  <p class="card-text"><a href="<? RACINE_SITE . "showProduct.php?id_product=" . $product['id_product'] ?>" class="text-decoration-none text-secondary "><?= $product['price'] ?></a> €</p>
+                                                  </p>
+                                             </div>
+                                        </div>
+                                   </div>
+                              <?php
+                              }
+                              ?>
+                         </div>
+                    </div>
+
+                    <div class="carousel-item">
+                         <div class="card-group">
+                              <?php
+                              $products4 = productByDateDesc4();
+                              foreach ($products4 as $product) {
+                              ?>
+                                   <div class="col-md-3">
+
+                                        <div class="card mx-3 border-0">
+                                             <a href="#"><img src="<?= RACINE_SITE . "assets/img/" . $product['image'] ?>" class="card-img-top" alt="affiche"></a>
+                                             <div class="card-body">
+                                                  <h5 class="card-title"><?= $product['name'] ?></h5>
+                                                  <p class="card-text"><a href="<? RACINE_SITE . "showProduct.php?id_product=" . $product['id_product'] ?>" class="text-decoration-none text-secondary "><?= $product['price'] ?></a> €</p>
+                                                  </p>
+                                             </div>
+                                        </div>
+                                   </div>
+                              <?php
+                              }
+                              ?>
+                         </div>
+                    </div>
+
 
                </div>
-               <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+               <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
                </button>
-               <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+               <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
                </button>
           </div>
 
      </section>
      <!-- ************************************************** -->
 
-     <section class="outils">
+     <section class="outils mt-5">
           <div>
                <h3>NOS OUTILS</h3>
                <p>Découvrez notre outil de création de mur de cadres.</p>
@@ -186,7 +206,7 @@ $info = "";
 
      </section>
 
-     
+
 
 
 

@@ -410,6 +410,44 @@ function deleteProduct(int $id): void
     $request->execute([':id' => $id]);
 }
 
+// //////////////// fonction pour afficher les produits les plus récents dans un carousel  ////////////////////////
+
+function productByDateDesc1(){
+    $pdo = connexionBdd();
+    $sql = "SELECT * FROM products ORDER BY id_product DESC LIMIT 4";
+    $request = $pdo->query($sql);
+    $result = $request->fetchAll();
+    return $result;
+
+}
+
+function productByDateDesc2(){
+    $pdo = connexionBdd();
+    $sql = "SELECT * FROM products ORDER BY id_product DESC LIMIT 4 OFFSET 4";
+    $request = $pdo->query($sql);
+    $result = $request->fetchAll();
+    return $result;
+
+}
+
+function productByDateDesc3(){
+    $pdo = connexionBdd();
+    $sql = "SELECT * FROM products ORDER BY id_product DESC LIMIT 4 OFFSET 8";
+    $request = $pdo->query($sql);
+    $result = $request->fetchAll();
+    return $result;
+
+}
+
+function productByDateDesc4(){
+    $pdo = connexionBdd();
+    $sql = "SELECT * FROM products ORDER BY id_product DESC LIMIT 4 OFFSET 12";
+    $request = $pdo->query($sql);
+    $result = $request->fetchAll();
+    return $result;
+
+}
+
 // //////////////// fonction pour afficher les produits les plus chers  ////////////////////////
 
 function productByPriceDesc(){
