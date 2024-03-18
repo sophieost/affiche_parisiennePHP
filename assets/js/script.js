@@ -58,6 +58,8 @@ function dropHandler(ev) {
 }
 
 
+// Faire apparaitre/disparaitre le mot de passe 
+
 function showPass() {
     if (mdp.type === "password") {
         mdp.type = "text";
@@ -67,4 +69,40 @@ function showPass() {
         confirmMdp.type = "password";
     }
 }
+
+//  Navigation BackOffice
+
+let links = document.querySelectorAll(".navBack ul a");
+console.log(links);
+let pageActive = window.location.href; // Stockage localisation dans une variable
+for (let i = 0; i < links.length; i++) {
+    // On boucle sur le tableau "links" qui contient les "a"
+    if (pageActive.includes(links[i].href)) {
+        // On vérifie si la localisation de la page contient le lien sur lequel on clique // si true
+        links[i].classList.add("actuel"); // Ajout de la classe "actuel"
+    }
+}
+
+//   QUIZ
+
+
+let quiz = document.getElementById('quiz');
+let results = document.querySelectorAll('.results');
+let submitQuiz = document.getElementById('submitQuiz')
+
+submitQuiz.addEventListener('submit', () => {
+    results.forEach(result => {
+        if (result.style.display = 'block') {
+            quiz.style.display = 'none';
+        }else{
+
+        }
+        
+        );
+
+}
+    
+});
+
+
 

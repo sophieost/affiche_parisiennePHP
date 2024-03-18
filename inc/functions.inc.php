@@ -412,6 +412,15 @@ function deleteProduct(int $id): void
 
 // //////////////// fonction pour afficher les produits les plus récents dans un carousel  ////////////////////////
 
+function productByDateDesc(){
+    $pdo = connexionBdd();
+    $sql = "SELECT * FROM products ORDER BY id_product DESC LIMIT 16";
+    $request = $pdo->query($sql);
+    $result = $request->fetchAll();
+    return $result;
+
+}
+
 function productByDateDesc1(){
     $pdo = connexionBdd();
     $sql = "SELECT * FROM products ORDER BY id_product DESC LIMIT 4";
@@ -554,6 +563,53 @@ function productXl(): array
     $result = $request->fetchAll();
     return $result;
 }
+
+// ////////////////  Fonction pour afficher les images d'un profil QUIZ //////////////////////
+
+function showImgprofila(): array
+{
+    {
+        $pdo = connexionBdd();
+        $sql = "SELECT * FROM categories_quiz WHERE profil = 'a'";
+        $request = $pdo->query($sql);
+        $result = $request->fetchAll();
+        return $result;
+    }
+}
+
+function showImgprofilb(): array
+{
+    {
+        $pdo = connexionBdd();
+        $sql = "SELECT * FROM categories_quiz WHERE profil = 'b'";
+        $request = $pdo->query($sql);
+        $result = $request->fetchAll();
+        return $result;
+    }
+}
+
+function showImgprofilc(): array
+{
+    {
+        $pdo = connexionBdd();
+        $sql = "SELECT * FROM categories_quiz WHERE profil = 'c'";
+        $request = $pdo->query($sql);
+        $result = $request->fetchAll();
+        return $result;
+    }
+}
+
+function showImgprofild(): array
+{
+    {
+        $pdo = connexionBdd();
+        $sql = "SELECT * FROM categories_quiz WHERE profil = 'd'";
+        $request = $pdo->query($sql);
+        $result = $request->fetchAll();
+        return $result;
+    }
+}
+
 
 
 ////////////////////// Une fonction pour la création des clés étrangères //////////////////////////

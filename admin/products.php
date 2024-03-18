@@ -23,7 +23,7 @@ $title = "Produits";
 
 <main class="mainProducts bg-white pt-3">
 
-    <h2 class="text-center fw-bolder mb-5 text-secondary">Liste des affiches</h2>
+    <h2 class="text-center fw-bolder mb-5 text-dark">Liste des affiches</h2>
     <div class="container d-flex flex-column m-auto mt-5">
 
         <a href="gestionProducts.php" class="btn btn-secondary p-2 fs-5 align-self-end "> Ajouter une affiche</a>

@@ -45,7 +45,7 @@ $bannerPara = "Bienvenue sur votre Back Office";
 $bannerMenu = '<div class="p-2 sidebarre bg-transparent rounded">
 <hr>
 
-<ul class="nav nav-underline mb-auto">
+<ul class="nav nav-underline mb-auto navBack">
     <li class="nav-item bg-light border border-secondary mx-5 rounded py-2 px-5 fs-5">
         <a href="?dashboard_php" class="nav-link active text-dark">Backoffice</a>
     </li>

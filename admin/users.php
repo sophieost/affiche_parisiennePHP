@@ -12,7 +12,7 @@ require_once "../inc/header.inc.php";
 
 <main class="mainUsers bg-white pt-3">
 
-    <h2 class="text-center fw-bolder mb-5 text-secondary">Liste des utilisateurs</h2>
+    <h2 class="text-center fw-bolder mb-5 text-dark">Liste des utilisateurs</h2>
     <div class="d-flex flex-column m-5  table-responsive">
     <table class="table table-light table-bordered mt-5">
         <thead>

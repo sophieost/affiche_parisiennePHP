@@ -11,7 +11,7 @@ img {
     max-width: 100%;
 }
 
-h2 {
+h2, h5 {
     font-family: "DM Serif Display", serif;
     text-transform: uppercase;
     font-weight: 200;
@@ -395,19 +395,7 @@ header {
     color: whitesmoke;
 }
 
-.selection h4 {
-    margin: 30px auto;
-    width: 75%;
-}
-
-.card {
-    transition: 0.5;
-}
-
-.selection img:hover {
-    opacity: 0.5;
-    cursor: pointer;
-}
+/* *********************  Outils  *************************** */
 
 .outils {
     background: url("../img/outilsCreationMur.png") center/cover;
@@ -428,7 +416,42 @@ header {
     font-weight: 700;
 }
 
-/* *******************  Carousel  ******************************* */
+.mainOutils{
+    display: flex;
+}
+.imagesTool div{
+    width: 100px;
+}
+.wallTool{
+    background: url("../img/whiteWallTool.jpg") center/cover;
+    width: 70%;
+    height: 100vh;
+}
+.wallTool div{
+    display: flex;
+    height: 200px;
+
+}
+.drop{
+    width: 500px;
+    height: 500px;
+}
+
+/* *******************  Carousel  *************************** */
+
+.selection h4 {
+    margin: 30px auto;
+    width: 75%;
+}
+
+.card {
+    transition: 0.5;
+}
+
+.selection img:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
 
 .carousel-indicators button {
     width: 8px !important;
@@ -450,10 +473,15 @@ header {
     box-shadow: 0px 0px 17px -1px rgba(182,182,182,0.58);
 }
 
+
+
 /* *******************  page gestion produits/utilisateurs  ****************/
 
 .mainProducts, .mainUsers{
     margin-top: -100px;
+}
+.actuel{
+    font-weight: bold;
 }
 
 /* *********************FOOTER**************************** */
@@ -548,8 +576,11 @@ footer ul {
     .newsletter input,.newsletter button, .newsletter h5{
         width: 150px;
     }
+
+
         
     }
     @media screen and (max-width : 625px){
+
     
     }

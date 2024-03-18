@@ -80,7 +80,7 @@ $info = "";
           <h4>Nouveautés</h4>
 
 
-          <div id="myCarousel" class="carousel slide carousel-dark w-75 mx-auto">
+          <div id="myCarousel" class="carousel slide carousel-dark w-75 mx-auto carouselMd">
                <div class="carousel-indicators">
                     <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active mx-2" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active mx-2"></button>
@@ -101,10 +101,11 @@ $info = "";
                                    <div class="col-md-3">
 
                                         <div class="card mx-3 border-0">
-                                             <a href="#"><img src="<?= RACINE_SITE . "assets/img/" . $product['image'] ?>" class="card-img-top" alt="affiche"></a>
+                                             <a href="<? RACINE_SITE . "showProduct.php?id_product=" . $product['id_product'] ?>"><img src="<?= RACINE_SITE . "assets/img/" . $product['image'] ?>" class="card-img-top" alt="affiche"></a>
                                              <div class="card-body">
                                                   <h5 class="card-title"><?= $product['name'] ?></h5>
-                                                  <p class="card-text"><a href="<? RACINE_SITE . "showProduct.php?id_product=" . $product['id_product'] ?>" class="text-decoration-none text-secondary "><?= $product['price'] ?></a> €</p>
+                                                  <p class="card-text carouselPrice"><a href="<? RACINE_SITE . "showProduct.php?id_product=" . $product['id_product'] ?>" class="text-decoration-none text-secondary  "><?= $product['price'] ?></a> €</p>
+                                                  
                                                   </p>
                                              </div>
                                         </div>
@@ -125,7 +126,7 @@ $info = "";
                                    <div class="col-md-3">
 
                                         <div class="card mx-3 border-0">
-                                             <a href="#"><img src="<?= RACINE_SITE . "assets/img/" . $product['image'] ?>" class="card-img-top" alt="affiche"></a>
+                                             <a href="<? RACINE_SITE . "showProduct.php?id_product=" . $product['id_product'] ?>"><img src="<?= RACINE_SITE . "assets/img/" . $product['image'] ?>" class="card-img-top" alt="affiche"></a>
                                              <div class="card-body">
                                                   <h5 class="card-title"><?= $product['name'] ?></h5>
                                                   <p class="card-text"><a href="<? RACINE_SITE . "showProduct.php?id_product=" . $product['id_product'] ?>" class="text-decoration-none text-secondary "><?= $product['price'] ?></a> €</p>
@@ -148,7 +149,7 @@ $info = "";
                                    <div class="col-md-3">
 
                                         <div class="card mx-3 border-0">
-                                             <a href="#"><img src="<?= RACINE_SITE . "assets/img/" . $product['image'] ?>" class="card-img-top" alt="affiche"></a>
+                                             <a href="<? RACINE_SITE . "showProduct.php?id_product=" . $product['id_product'] ?>"><img src="<?= RACINE_SITE . "assets/img/" . $product['image'] ?>" class="card-img-top" alt="affiche"></a>
                                              <div class="card-body">
                                                   <h5 class="card-title"><?= $product['name'] ?></h5>
                                                   <p class="card-text"><a href="<? RACINE_SITE . "showProduct.php?id_product=" . $product['id_product'] ?>" class="text-decoration-none text-secondary "><?= $product['price'] ?></a> €</p>
@@ -171,7 +172,7 @@ $info = "";
                                    <div class="col-md-3">
 
                                         <div class="card mx-3 border-0">
-                                             <a href="#"><img src="<?= RACINE_SITE . "assets/img/" . $product['image'] ?>" class="card-img-top" alt="affiche"></a>
+                                             <a href="<? RACINE_SITE . "showProduct.php?id_product=" . $product['id_product'] ?>"><img src="<?= RACINE_SITE . "assets/img/" . $product['image'] ?>" class="card-img-top" alt="affiche"></a>
                                              <div class="card-body">
                                                   <h5 class="card-title"><?= $product['name'] ?></h5>
                                                   <p class="card-text"><a href="<? RACINE_SITE . "showProduct.php?id_product=" . $product['id_product'] ?>" class="text-decoration-none text-secondary "><?= $product['price'] ?></a> €</p>
@@ -195,6 +196,7 @@ $info = "";
                </button>
           </div>
 
+
      </section>
      <!-- ************************************************** -->
 
@@ -208,6 +210,7 @@ $info = "";
 
 
 
+</main>
 
 
 
@@ -219,9 +222,8 @@ $info = "";
 
 
 
+<?php
+require_once "inc/footer.inc.php";
 
-     <?php
-     require_once "inc/footer.inc.php";
 
-
-     ?>
+?>
