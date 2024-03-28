@@ -3,18 +3,24 @@
     margin: 0;
     padding: 0;
 }
-body{
-    scroll-snap-type: y mandatory;
-}
 
 img {
     max-width: 100%;
 }
 
-h2, h5 {
+h2,
+h5 {
     font-family: "DM Serif Display", serif;
     text-transform: uppercase;
     font-weight: 200;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
 }
 
 header {
@@ -24,6 +30,7 @@ header {
 }
 
 /* ***********************NAVBAR************************** */
+
 .nav-top {
     display: flex;
     height: 5vh;
@@ -48,6 +55,10 @@ header {
 
 }
 
+.nav-main:hover {
+    background-color: rgb(234, 194, 163) !important;
+}
+
 .sticky {
     position: fixed !important;
     top: 0;
@@ -59,12 +70,30 @@ header {
 .nav-categories ul {
     display: flex;
     list-style-type: none;
+    padding: 0;
 }
 
 .nav-categories ul li a {
     padding: 10px;
     text-decoration: none;
     color: whitesmoke;
+    padding: 0;
+}
+
+.collec:hover {
+    border-bottom: 2px solid whitesmoke;
+}
+
+.frame:hover {
+    border-bottom: 2px solid whitesmoke;
+}
+
+.tool:hover {
+    border-bottom: 2px solid whitesmoke;
+}
+
+.tool {
+    cursor: pointer;
 }
 
 .logo {
@@ -80,11 +109,6 @@ header {
     border: solid 1px whitesmoke;
 }
 
-/* input [type=search]{
-
-} */
-
-
 .nav-icons ul {
     display: flex;
     list-style-type: none;
@@ -99,6 +123,33 @@ header {
 }
 
 
+/* ****************DROPDOWN MENU************************** */
+
+.showDrop {
+    opacity: 1 !important;
+}
+
+.dropOutils {
+    opacity: 0;
+    display: block;
+    background-color: whitesmoke;
+    height: 10vh;
+    width: 100%;
+    position: absolute;
+    top: 100px;
+    left: 0;
+}
+
+.bi-chevron-down {
+    margin: 10px;
+}
+
+.dropOutils a {
+    position: absolute;
+    z-index: 1000;
+}
+
+
 /* ****************SIDEBAR************************** */
 #side-bar {
     position: absolute;
@@ -110,11 +161,13 @@ header {
     transition: 0.5s ease-out;
     z-index: 20000;
 }
-#side-bar ul li{
+
+#side-bar ul li {
     list-style-type: none;
     padding: 10px;
 }
-#side-bar ul li a{
+
+#side-bar ul li a {
     text-decoration: none;
     color: whitesmoke;
 }
@@ -164,7 +217,7 @@ header {
     opacity: 0.3;
 }
 
-/* ************************************************* */
+/* ***********************  INDEX  ******************** */
 
 
 
@@ -173,6 +226,7 @@ header {
     display: flex;
     align-items: end;
     margin: 0 50px;
+    position: relative;
 }
 
 .headBanner p {
@@ -395,7 +449,7 @@ header {
     color: whitesmoke;
 }
 
-/* *********************  Outils  *************************** */
+/* *********************  Outils  ********************** */
 
 .outils {
     background: url("../img/outilsCreationMur.png") center/cover;
@@ -416,28 +470,126 @@ header {
     font-weight: 700;
 }
 
-.mainOutils{
+.mainOutils {
     display: flex;
 }
-.imagesTool div{
+
+.imagesTool div {
     width: 100px;
 }
-.wallTool{
+
+.wallTool {
     background: url("../img/whiteWallTool.jpg") center/cover;
     width: 70%;
     height: 100vh;
 }
-.wallTool div{
+
+.wallTool div {
     display: flex;
     height: 200px;
 
 }
-.drop{
-    width: 500px;
-    height: 500px;
+
+.hideQuiz {
+    display: none;
 }
 
-/* *******************  Carousel  *************************** */
+.formQuiz {
+    display: block;
+}
+
+
+/* *******************  COLLECTIONS  ****************** */
+/* .collectionsNav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.collectionsTri{
+    margin: 15px !important;
+    padding: 5px !important;
+    border: 1px solid rgba(39, 39, 39, 0.333);
+    border-radius: 5px;
+
+} */
+
+.cardProduct{
+    transition: 0.3s ease-in-out;
+}
+
+.cardProduct:hover{
+transform: scale(1.02);
+filter: brightness(1.03);
+
+}
+
+/* **************  ONEPRODUCT  **************** */
+
+.value-control {
+    width: 35px;
+    height: 35px;
+    /* margin: 0 8px ; */
+    background: transparent;
+    border: 1px solid rgba(25, 25, 25, 0.423);
+    border-radius: 3px;
+    color: #3b3b3b;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.value-control:hover {
+    background: #eee;
+}
+
+.value-control:focus,
+.value-input:focus {
+    outline: 2px solid rgba(52, 52, 52, 0.423);
+    outline-offset: 1px
+}
+
+.value-input {
+    margin: 0;
+    height: 35px;
+    width: 290px;
+    border: 1px solid rgba(52, 52, 52, 0.423);
+    border-radius: 3px;
+    padding: 2px 8px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.value-input:hover {
+    border-color: #777;
+}
+
+.value-input::-webkit-outer-spin-button,
+.value-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.value-input {
+    --moz-appearance: textfield;
+}
+.productBtn{
+    font-family: "DM Serif Display", serif;
+    background-color:  rgb(251, 217, 188);
+    border: none;
+    transition: 0.2s ease;
+
+    &:hover{
+        transform: scale(1.03);
+    }
+
+    i{
+        font-size: 20px;
+        margin: 5px;
+    }
+}
+
+
+/* *******************  Carousel  ****************** */
 
 .selection h4 {
     margin: 30px auto;
@@ -463,28 +615,31 @@ header {
     bottom: -20px;
 }
 
-.carousel-control-prev, .carousel-control-next{
+.carousel-control-prev,
+.carousel-control-next {
     width: 50px;
     height: 50px;
     background-color: white;
     border-radius: 150px;
     top: 30%;
     opacity: 1;
-    box-shadow: 0px 0px 17px -1px rgba(182,182,182,0.58);
+    box-shadow: 0px 0px 17px -1px rgba(182, 182, 182, 0.58);
 }
 
 
 
-/* *******************  page gestion produits/utilisateurs  ****************/
+/* *************  page gestion produits/utilisateurs  **********/
 
-.mainProducts, .mainUsers{
+.mainProducts,
+.mainUsers {
     margin-top: -100px;
 }
-.actuel{
+
+.actuel {
     font-weight: bold;
 }
 
-/* *********************FOOTER**************************** */
+/* *********************FOOTER************************** */
 
 footer {
     background-color: rgba(253, 245, 234, 0.905);
@@ -557,30 +712,36 @@ footer ul {
 /* ********************MEDIAQUERIES********************* */
 
 @media screen and (max-width : 984px) {
-    .toggle-btn{
+    .toggle-btn {
         display: block;
     }
-    .nav-categories, .nav-icons{
+
+    .nav-categories,
+    .nav-icons {
         display: none;
     }
-    .nav-main{
+
+    .nav-main {
         justify-content: end;
     }
-    .logoSocio img{
+
+    .logoSocio img {
         width: 200px;
     }
-    .socio{
+
+    .socio {
         font-size: 1.5rem;
         margin: 0;
     }
-    .newsletter input,.newsletter button, .newsletter h5{
+
+    .newsletter input,
+    .newsletter button,
+    .newsletter h5 {
         width: 150px;
     }
 
 
-        
-    }
-    @media screen and (max-width : 625px){
 
-    
-    }
+}
+
+@media screen and (max-width : 625px) {}

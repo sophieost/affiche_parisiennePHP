@@ -79,11 +79,11 @@ function connexionBdd()
 
     // Sans la variable $dsn et sans le constantes, on se connecte à la BDD :
 
-    $pdo = new PDO('mysql:host=localhost;dbname=cinema;charset=utf8', 'root', '');
+    $pdo = new PDO('mysql:host=localhost;dbname=affiche_parisienne;charset=utf8', 'root', '');
 
     // avec la variable DSN (Data Source Name) et les constantes
 
-    $dsn = "mysql:host=localhost;dbname=cinema;charset=utf8";
+    $dsn = "mysql:host=localhost;dbname=affiche_parisienne;charset=utf8";
 
     $dsn = "mysql:host=" . DBHOST . ";dbname=" . DBNAME . ";charset=utf8";
 
@@ -520,6 +520,21 @@ function productByRoom(int $id): array
     return $result;
 }
 
+
+
+// //////////////  Fonction pour récuperer toutes les tailles  /////////////////
+
+function allSizes(): array
+{
+
+    $pdo = connexionBdd();
+    $sql = "SELECT DISTINCT size FROM products";
+    $request = $pdo->query($sql);
+    $result = $request->fetchAll();
+    return $result;
+}
+
+
 // //////////////  Fonction pour récuperer les produits qui ont la taille small  /////////////////
 
 function productSmall(): array
@@ -608,6 +623,16 @@ function showImgprofild(): array
         $result = $request->fetchAll();
         return $result;
     }
+}
+
+
+// ///////////// Fonction Actors - Chaine vers tableau   //////////////////////////
+
+function stringToArray(string $string): array
+{
+
+    $array = explode('/', trim($string));
+    return $array;
 }
 
 

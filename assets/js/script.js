@@ -1,4 +1,4 @@
-// NAVBAR
+// NAVBAR MENU BURGER
 
 const sidebar = document.getElementById("side-bar");
 // const content = document.querySelector(".content");
@@ -13,6 +13,30 @@ document.querySelector("main").addEventListener("click", () => {
 document.querySelector(".headBanner").addEventListener("click", () => {
     sidebar.classList.remove("active");
 });
+
+
+//   DROPDOWN MENU
+
+let link = document.getElementById('dropLink');
+let dropMenu = document.getElementById('dropMenu');
+let chevron = document.querySelector('.bi-chevron-down');
+// console.log(dropMenu);
+
+link.addEventListener('click', () => {
+    dropMenu.classList.toggle('showDrop');
+    chevron.classList.toggle('bi-chevron-up');
+});
+
+// document.addEventListener('click', function (event) {
+
+//     // Si l'élément cliqué n'est pas dans le menu déroulant, masquez le menu
+//     if (!dropMenu.contains(event.target) && !link.contains(event.target)) {
+//         dropMenu.classList.remove('showDrop');
+//     }
+// });
+
+
+//  NAVBAR FIXED AU SCROLL
 
 const navbar = document.querySelector('.nav-main');
 // console.log(navbar);
@@ -30,32 +54,24 @@ window.addEventListener('scroll', () => {
 
 
 // DRAG AND DROP
-function dragStartHandler(ev) {
-    console.log("dragStart");
-    // Set the drag's format and data. Use the event target's id for the data
-    ev.dataTransfer.setData("text/plain", ev.target.id);
-    // Create an image and use it for the drag image
-    // NOTE: change "example.gif" to an existing image or the image will not
-    // be created and the default drag image will be used.
-
-    // const img = new Image();
-    // img.src = "example.gif";
-    // ev.dataTransfer.setDragImage(img, 10, 10);
-}
 
 
-function dragOverHandler(ev) {
-    console.log("dragOver");
+// ************************************************************
+
+function allowDrop(ev) {
     ev.preventDefault();
 }
 
-function dropHandler(ev) {
-    console.log("Drop");
-    ev.preventDefault();
-    // Get the data, which is the id of the drop target
-    const data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
 }
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById('data'));
+}
+
 
 
 // Faire apparaitre/disparaitre le mot de passe 
@@ -72,37 +88,38 @@ function showPass() {
 
 //  Navigation BackOffice
 
-let links = document.querySelectorAll(".navBack ul a");
-console.log(links);
-let pageActive = window.location.href; // Stockage localisation dans une variable
-for (let i = 0; i < links.length; i++) {
-    // On boucle sur le tableau "links" qui contient les "a"
-    if (pageActive.includes(links[i].href)) {
-        // On vérifie si la localisation de la page contient le lien sur lequel on clique // si true
-        links[i].classList.add("actuel"); // Ajout de la classe "actuel"
-    }
-}
+// let links = document.querySelectorAll(".navBack ul a");
+// // console.log(links);
+// let pageActive = window.location.href; // Stockage localisation dans une variable
+// for (let i = 0; i < links.length; i++) {
+//     // On boucle sur le tableau "links" qui contient les "a"
+//     if (pageActive.includes(links[i].href)) {
+//         // On vérifie si la localisation de la page contient le lien sur lequel on clique // si true
+//         links[i].classList.add("actuel"); // Ajout de la classe "actuel"
+//     }
+// }
 
 //   QUIZ
 
 
+let formQuiz = document.querySelector('.formQuiz');
 let quiz = document.getElementById('quiz');
-let results = document.querySelectorAll('.results');
-let submitQuiz = document.getElementById('submitQuiz')
+console.log(formQuiz);
+// let results = document.querySelectorAll('results');
+// let quiz = document.getElementById('quiz');
+// let btnQuiz = document.getElementById('submitQuiz');
 
-submitQuiz.addEventListener('submit', () => {
-    results.forEach(result => {
-        if (result.style.display = 'block') {
-            quiz.style.display = 'none';
-        }else{
 
-        }
-        
-        );
-
-}
-    
+quiz.addEventListener('submit', (event) => {
+    event.preventDefault();
+    quiz.classList.add('hideQuiz');
+    quiz.classList.remove('formQuiz');
+    // result.style.display = 'block';
 });
+
+
+
+
 
 
 

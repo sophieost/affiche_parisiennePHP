@@ -36,15 +36,29 @@ logOut();
 <body>
     <header>
         <nav>
-            <div class="nav-top">
+            <!-- <div class="nav-top">
                 <p>Frais de ports offerts à partir de 49€ d'achat &bull; Livraison en 3-5 jours ouvrés</p>
-            </div>
+            </div> -->
             <div class="nav-main">
                 <div class="nav-categories">
                     <ul>
-                        <li><a href="<?= RACINE_SITE ?>collections.php">COLLECTIONS</a></li>
-                        <li><a href="<?= RACINE_SITE ?>cadres.php">CADRES</a></li>
-                        <li><a href="<?= RACINE_SITE ?>outils.php">OUTILS</a></li>
+                        <li class="mx-3 py-2 collec"><a href="<?= RACINE_SITE ?>collections.php">COLLECTIONS</a></li>
+                        <li class="mx-3 py-2 frame"><a href="<?= RACINE_SITE ?>cadres.php">CADRES</a></li>
+                        <li class="mx-3 py-2 tool " id="dropLink">OUTILS <i class="bi bi-chevron-down"></i></li>
+
+
+                        <li class="dropOutils" id="dropMenu">
+                            <div class="row container mx-auto py-3">
+                                <div class="col-6 d-flex flex-column">
+                                    <h5><a class="text-dark border-bottom" href="<?= RACINE_SITE ?>outils.php">Création de mur de cadres</a></h5>
+                                </div>
+                                <div class="col-6">
+                                    <h5><a class="text-dark border-bottom" href="<?= RACINE_SITE ?>quiz.php">Test : quelle affiche est faite pour vous ?</a></h5>
+                                </div>
+                            </div>
+                        </li>
+
+
                     </ul>
                 </div>
                 <div class="logo">
@@ -68,7 +82,14 @@ logOut();
                                     <a href="<?= RACINE_SITE ?>admin/dashboard.php?dashboard_php" class="text-white text-decoration-none">Backoffice</a>
                                 </li>
 
-                            <?php } ?>
+                            <?php } else { ?>
+                                <li>
+                                    <a href="<?= RACINE_SITE ?>compte.php?compte_php" class="text-white text-decoration-none">Mon Compte</a>
+                                </li>
+                            <?php
+                            }
+
+                            ?>
 
                             <li>
                                 <a class="text-decoration-none text-white" href="?action=deconnexion"><i class="bi bi-box-arrow-right"></i></a>
@@ -83,6 +104,9 @@ logOut();
                     </ul>
                 </div>
             </div>
+
+
+
             <div id="side-bar">
                 <div class="toggle-btn" id="btn">
                     <span></span>
@@ -97,6 +121,7 @@ logOut();
                         <li><a href="<?= RACINE_SITE ?>collections.php">COLLECTIONS</a></li>
                         <li><a href="<?= RACINE_SITE ?>cadres.php">CADRES</a></li>
                         <li><a href="<?= RACINE_SITE ?>outils.php">OUTILS</a></li>
+                        <li><a href="<?= RACINE_SITE ?>quiz.php">TEST</a></li>
                         <li><a href="<?= RACINE_SITE ?>authentification.php">Se connecter</a></li>
                         <li><a href="<?= RACINE_SITE ?>favoris.php">Favoris</a></li>
                         <li class="list"><a href="<?= RACINE_SITE ?>boutique/panier.php">Panier</a></li>

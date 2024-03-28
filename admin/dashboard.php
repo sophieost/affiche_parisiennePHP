@@ -26,10 +26,10 @@ if(!empty($_GET['action']) && $_GET['action'] == 'update' && !empty($_GET['id_us
 
 
 if (!isset($_SESSION['user'])) {
-    header("location:" . RACINE_SITE . "identification.php");
+    header("location: " . RACINE_SITE . "identification.php");
 } else {
     if ($_SESSION['user']['role'] == 'ROLE_USER') {
-        header("location:" . RACINE_SITE . "index.php");
+        header("location: " . RACINE_SITE . "index.php");
     }
 }
 
@@ -42,7 +42,7 @@ if (!isset($_SESSION['user'])) {
 $title = "Backoffice";
 $bannerTitle = "Bonjour, " . $_SESSION['user']['firstName'];
 $bannerPara = "Bienvenue sur votre Back Office";
-$bannerMenu = '<div class="p-2 sidebarre bg-transparent rounded">
+$bannerMenu = '<div class="p-2 bg-transparent rounded">
 <hr>
 
 <ul class="nav nav-underline mb-auto navBack">
